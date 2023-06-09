@@ -27,6 +27,10 @@ const Servicios = () => {
     history('/orden');
   };
 
+  const handleAtrasClick = () => {
+    history('/vehiculo');
+  };
+
   return (
     <div>
       <h2>Selección de servicios</h2>
@@ -79,6 +83,7 @@ const Servicios = () => {
         </div>
         <button type="submit">Siguiente</button>
       </form>
+      <button onClick={handleAtrasClick}>Atrás</button>
     </div>
   );
 };

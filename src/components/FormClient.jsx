@@ -56,7 +56,7 @@ const FormCliente = () => {
             onChange={handleInputChange}
             className={camposInvalidos.includes('nombre') ? 'invalid' : ''}
           />
-          {camposInvalidos.includes('nombre') && <span className="asterisk">*</span>}
+          
         </div>
 
         <div>

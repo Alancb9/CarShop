@@ -4,6 +4,7 @@ import FormClient from './components/FormClient.jsx';
 import FormVehiculo from './components/FormVehiculo.jsx';
 import Servicios from './components/Servicios.jsx';
 import OrdenTrabajo from './components/OrdenTrabajo.jsx';
+import Exito from './components/Exito.jsx';
 
 function App() {
   return (
@@ -54,6 +55,7 @@ function App() {
             <Route exact path='/vehiculo' element={<FormVehiculo />}/>
             <Route exact path='/servicios' element={<Servicios />}/>
             <Route exact path='/orden' element={<OrdenTrabajo />}/>
+            <Route exact path='/exito' element={<Exito/>} />
           </Routes>
         </Fragment>
       </div>

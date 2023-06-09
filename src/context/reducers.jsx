@@ -30,6 +30,22 @@ export const reducer = (state, action) => {
         ...state,
         servicios: state.servicios.filter(service => service !== action.payload),
       };
+    case 'RESET_DATOS':
+      return {
+        cliente: {
+          nombre: '',
+          email: '',
+          contacto: '',
+          tipoIdentificacion: '',
+        },
+        vehiculo: {
+          marca: '',
+          modelo: '',
+          placa: '',
+        },
+        fechaEntrega: '',
+        servicios: [],
+      };
     default:
       return state;
   }
