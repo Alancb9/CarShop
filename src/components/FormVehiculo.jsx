@@ -47,69 +47,93 @@ const FormVehiculo = () => {
   };
 
   return (
-    <div>
-      <h2>Datos del vehículo</h2>
-      <form onSubmit={handleSubmit}>
+    <div className="container">
+      <h2 className="text-center my-3">Datos del vehículo</h2>
+      <form onSubmit={handleSubmit} className="form-cliente">
 
-        {/* Campos del formulario para datos del vehículo */}
-        <div>
-          <label htmlFor="marca">Marca del vehiculo:</label>
-          <input
-            type="text"
-            name="marca"
-            value={vehiculo.marca}
-            onChange={handleInputChange}
-            className={camposInvalidos.includes('marca') ? 'invalid' : ''}
-          />
-          {camposInvalidos.includes('marca') && <span className="asterisk">*</span>}
-        </div>
-        <div>
-          <label htmlFor="modelo">Modelo:</label>
-          <input
-            type="text"
-            name="modelo"
-            value={vehiculo.modelo}
-            onChange={handleInputChange}
-            className={camposInvalidos.includes('modelo') ? 'invalid' : ''}
-          />
-          {camposInvalidos.includes('modelo') && <span className="asterisk">*</span>}
-        </div>
-        <div>
-          <label htmlFor="placa">Placa:</label>
-          <input
-            type="text"
-            name="placa"
-            value={vehiculo.placa}
-            onChange={handleInputChange}
-            className={camposInvalidos.includes('placa') ? 'invalid' : ''}
-          />
-          {camposInvalidos.includes('placa') && <span className="asterisk">*</span>}
-        </div>
-        <div>
-          <label htmlFor="nivelTanque">Nivel del tanque de gasolina:</label>
-          <input
-            type="text"
-            name="nivelTanque"
-            value={vehiculo.nivelTanque}
-            onChange={handleInputChange}
-            className={camposInvalidos.includes('nivelTanque') ? 'invalid' : ''}
-          />
-          {camposInvalidos.includes('nivelTanque') && <span className="asterisk">*</span>}
-        </div>
-        <div>
-          <label htmlFor="estadoExterior">Estado exterior del vehiculo</label>
-          <textarea
-            name="estadoExterior"
-            value={vehiculo.estadoExterior}
-            onChange={handleInputChange}
-            className={camposInvalidos.includes('estadoExterior') ? 'invalid' : ''}
-          ></textarea>
-          {camposInvalidos.includes('estadoExterior') && <span className="asterisk">*</span>}
+        {camposInvalidos.length > 0 && (
+          <div className="alert alert-danger" role="alert">
+            Los campos en rojo son obligatorios.
+          </div>
+        )}
+
+        <div className="row mt-3">
+          <div className="col-md-12">
+            <div className="form-group">
+              <label htmlFor="marca">Marca del vehiculo:</label>
+              <input
+                type="text"
+                name="marca"
+                value={vehiculo.marca}
+                onChange={handleInputChange}
+                className={`form-control ${camposInvalidos.includes('marca') ? 'is-invalid' : ''}`}
+              />
+            </div>
+          </div>
         </div>
 
-        <button type="submit">Siguiente</button>
+        <div className="row mt-3">
+          <div className="col-md-6">
+            <div className="form-group">
+              <label htmlFor="modelo">Modelo:</label>
+              <input
+                type="text"
+                name="modelo"
+                value={vehiculo.modelo}
+                onChange={handleInputChange}
+                className={`form-control ${camposInvalidos.includes('modelo') ? 'is-invalid' : ''}`}
+              />
+            </div>
+          </div>
+          <div className="col-md-6">
+            <div className="form-group">
+              <label htmlFor="placa">Placa:</label>
+              <input
+                type="text"
+                name="placa"
+                value={vehiculo.placa}
+                onChange={handleInputChange}
+                className={`form-control ${camposInvalidos.includes('placa') ? 'is-invalid' : ''}`}
+              />
+            </div>
+          </div>
+        </div>
+
+        <div className="row mt-3">
+          <div className="col-md-12">
+            <div className="form-group">
+              <label htmlFor="nivelTanque">Nivel del tanque de gasolina:</label>
+              <input
+                type="text"
+                name="nivelTanque"
+                value={vehiculo.nivelTanque}
+                onChange={handleInputChange}
+                className={`form-control ${camposInvalidos.includes('nivelTanque') ? 'is-invalid' : ''}`}
+              />
+            </div>
+          </div>
+        </div>
+
+        <div className="row mt-3">
+          <div className="col-ms-12">
+            <div className="form-group">
+              <label htmlFor="estadoExterior">Estado exterior del vehiculo</label>
+              <textarea
+                name="estadoExterior"
+                value={vehiculo.estadoExterior}
+                onChange={handleInputChange}
+                className={`form-control ${camposInvalidos.includes('estadoExterior') ? 'is-invalid' : ''}`}
+              ></textarea>
+            </div>
+          </div>
+        </div>
+
+        <div className="d-md-flex justify-content-md-end mt-4 mb-5">
+          <button class="btn btn-primary me-md-2" type="button" onClick={handleAtrasClick}>Atrás</button>
+          <button type="submit" className="btn btn-primary">Siguiente</button>
+        </div>
+
       </form>
-      <button onClick={handleAtrasClick}>Atrás</button>
     </div>
   );
 };

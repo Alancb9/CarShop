@@ -46,12 +46,15 @@ const FormCliente = () => {
   return (
     <div className="container">
       <h2 className="text-center my-3">Datos del cliente</h2>
+
       <form onSubmit={handleSubmit} className="form-cliente">
+
         {camposInvalidos.length > 0 && (
           <div className="alert alert-danger" role="alert">
             Los campos en rojo son obligatorios.
           </div>
         )}
+        
         <div className="row mt-3">
           <div className="col-md-12">
             <div className="form-group">
