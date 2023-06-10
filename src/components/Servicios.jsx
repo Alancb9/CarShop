@@ -1,10 +1,12 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AppContext } from '../context/AppContext';
+import 'bootstrap/dist/css/bootstrap.css';
 
 const Servicios = () => {
   const { state, dispatch } = useContext(AppContext);
   const history = useNavigate();
+  const [error, setError] = useState(false);
 
   const handleCheckboxChange = (e) => {
     const selectedService = e.target.value;
@@ -19,8 +21,12 @@ const Servicios = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // if (state.servicios.length === 0) {
+    //   alert('Por favor, seleccione al menos un servicio.');
+    //   return;
+    // }
     if (state.servicios.length === 0) {
-      alert('Por favor, seleccione al menos un servicio.');
+      setError(true);
       return;
     }
 
@@ -32,58 +38,116 @@ const Servicios = () => {
   };
 
   return (
-    <div>
-      <h2>Selección de servicios</h2>
-      <form onSubmit={handleSubmit}>
-        {/* Lista de servicios disponibles con checkboxes */}
-        <div>
-          <label htmlFor="Cambio de aceite">Cambio de aceite: </label>
-          <input
-            type="checkbox"
-            value="Cambio de aceite"
-            checked={state.servicios.includes("Cambio de aceite")}
-            onChange={handleCheckboxChange}
-          />
+    <div className="container">
+      <h2 className="text-center my-3">Selección de servicios</h2>
+
+      {error && (
+        <div className="alert alert-danger" role="alert">
+          Debes elegir al menos uno de los campos
         </div>
-        <div>
-          <label htmlFor="Cambio de frenos">Cambio de frenos: </label>
-          <input
-            type="checkbox"
-            value="Cambio de frenos"
-            checked={state.servicios.includes("Cambio de frenos")}
-            onChange={handleCheckboxChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="Alineación y balanceo">Alineacion y balanceo: </label>
-          <input
-            type="checkbox"
-            value="Alineacion y balanceo"
-            checked={state.servicios.includes("Alineacion y balanceo")}
-            onChange={handleCheckboxChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="Diagnóstico general">Diagnostico General: </label>
-          <input
-            type="checkbox"
-            value="Diagnostico general"
-            checked={state.servicios.includes("Diagnostico general")}
-            onChange={handleCheckboxChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="Revisión sistema eléctrica">Revision del sistema electrico: </label>
-          <input
-            type="checkbox"
-            value="Revision del sistema electrico"
-            checked={state.servicios.includes("Revision del sistema electrico")}
-            onChange={handleCheckboxChange}
-          />
-        </div>
-        <button type="submit">Siguiente</button>
-      </form>
-      <button onClick={handleAtrasClick}>Atrás</button>
+      )}
+
+      <div className="form-container mb-4">
+        <form onSubmit={handleSubmit} className="form-cliente">
+
+          <div className="form-check">
+            <label className="form-check-label" htmlFor="Cambio de aceite">
+              Cambio de aceite
+            </label>
+            <input className="form-check-input"
+              type="checkbox"
+              value="Cambio de aceite"
+              id="Cambio de aceite"
+              checked={state.servicios.includes("Cambio de aceite")}
+              onChange={handleCheckboxChange}
+            />
+          </div>
+
+          <div className="form-check">
+            <label className="form-check-label" htmlFor="Cambio de frenos">
+              Cambio de frenos
+            </label>
+            <input className="form-check-input"
+              type="checkbox"
+              value="Cambio de frenos"
+              id="Cambio de frenos"
+              checked={state.servicios.includes("Cambio de frenos")}
+              onChange={handleCheckboxChange}
+            />
+          </div>
+
+          <div className="form-check">
+            <label className="form-check-label" htmlFor="Alineacion y balanceo">
+              Alineacion y balanceo
+            </label>
+            <input className="form-check-input"
+              type="checkbox"
+              value="Alineacion y balanceo"
+              id="Alineacion y balanceo"
+              checked={state.servicios.includes("Alineacion y balanceo")}
+              onChange={handleCheckboxChange}
+            />
+          </div>
+
+          <div className="form-check">
+            <label className="form-check-label" htmlFor="Diagnostico General">
+              Diagnostico General
+            </label>
+            <input className="form-check-input"
+              type="checkbox"
+              value="Diagnostico General"
+              id="Diagnostico General"
+              checked={state.servicios.includes("Diagnostico General")}
+              onChange={handleCheckboxChange}
+            />
+          </div>
+
+          <div className="form-check">
+            <label className="form-check-label" htmlFor="Revision del sistema electrico">
+              Revision del sistema electrico
+            </label>
+            <input className="form-check-input"
+              type="checkbox"
+              value="Revision del sistema electrico"
+              id="Revision del sistema electrico"
+              checked={state.servicios.includes("Revision del sistema electrico")}
+              onChange={handleCheckboxChange}
+            />
+          </div>
+
+          <div className="form-check">
+            <label className="form-check-label" htmlFor="Reparacion de neumaticos">
+              Reparacion de neumaticos
+            </label>
+            <input className="form-check-input"
+              type="checkbox"
+              value="Reparacion de neumaticos"
+              id="Reparacion de neumaticos"
+              checked={state.servicios.includes("Reparacion de neumaticos")}
+              onChange={handleCheckboxChange}
+            />
+          </div>
+
+          <div className="form-check">
+            <label className="form-check-label" htmlFor="Mantenimiento del sistema de aire acondicionado">
+              Mantenimiento del sistema de aire acondicionado
+            </label>
+            <input className="form-check-input"
+              type="checkbox"
+              value="Mantenimiento del sistema de aire acondicionado"
+              id="Mantenimiento del sistema de aire acondicionado"
+              checked={state.servicios.includes("Mantenimiento del sistema de aire acondicionado")}
+              onChange={handleCheckboxChange}
+            />
+          </div>
+
+          <div className="d-md-flex justify-content-md-end mt-4 mb-1">
+            <button class="btn btn-primary me-md-2" type="button" onClick={handleAtrasClick}>Atrás</button>
+            <button type="submit" className="btn btn-primary">Siguiente</button>
+          </div>
+        </form>
+      </div>
+
     </div>
   );
 };

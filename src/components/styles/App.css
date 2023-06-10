@@ -72,4 +72,67 @@ footer {
     max-width: 700px;
     /* Puedes ajustar el valor según tus necesidades */
     margin: 0 auto;
+
+}
+
+
+/* Form Servicios*/
+.form-container {
+    border: 2px solid #ccc;
+    padding: 20px;
+    margin-top: 20px;
+    max-width: 700px;
+    /* Ajusta el ancho máximo según tus necesidades */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form-check {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.form-check-label:hover {
+    cursor: pointer;
+}
+
+.form-check-input:hover {
+    cursor: pointer;
+}
+
+.form-check-label {
+    font-size: 18px;
+}
+
+/* Orden Trabajo */
+/* .form-section {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+
+} */
+#cliente{
+    border-right: 1px solid #ccc;
+    padding-right: 80px;
+    margin-right: 10px;
+}
+#estadoVehiculo{
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+    margin-top: 10px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+#serviciosSeleccionados{
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+#botones{
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+    margin-top: 10px;
 }
