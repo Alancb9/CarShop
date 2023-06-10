@@ -6,8 +6,8 @@ const initialState = {
     nombre: '',
     email: '',
     contacto: '',
-    identificacionFiscal: '',
     tipoIdentificacion: '',
+    identificacion: '',
   },
   vehiculo: {
     marca: '',

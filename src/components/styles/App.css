@@ -1,0 +1,75 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Footer */
+footer {
+    background-color: #4058a2;
+    color: white;
+    flex-shrink: 0;
+    margin-top: auto;
+    padding: 1rem;
+}
+
+/* Seccion nav bar */
+.navbar-custom {
+    background-color: #4058a2;
+    /* Color café oscuro personalizado */
+}
+
+/* Seccion de bienvenida */
+.section-custom {
+    background-color: #7693ff;
+    /* Color café claro personalizado */
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+/* Icono de git */
+.fixed-icon {
+    position: fixed;
+    bottom: 10px;
+    right: 20px;
+    z-index: 10;
+    width: 50px;
+    /* Aumenta el tamaño del ícono */
+    height: 50px;
+    /* Aumenta el tamaño del ícono */
+    border-radius: 200px;
+    /* Aumenta el tamaño del borde redondeado */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    /* Establece el color de fondo a negro */
+}
+
+.fixed-icon svg {
+    width: 30px;
+    /* Aumenta el tamaño del contenido del ícono */
+    height: 30px;
+    /* Aumenta el tamaño del contenido del ícono */
+    fill: #7693ff;
+    ;
+    /* Establece el color del contenido del ícono a blanco */
+}
+
+/* Form del cliente */
+.form-cliente {
+    max-width: 700px;
+    /* Puedes ajustar el valor según tus necesidades */
+    margin: 0 auto;
+}
