@@ -13,22 +13,24 @@ body {
 
 /* Footer */
 footer {
-    background-color: #4058a2;
-    color: white;
+    background-color: #0c0c37;
+    /* color: white; */
     flex-shrink: 0;
     margin-top: auto;
     padding: 1rem;
 }
 
+
+
 /* Seccion nav bar */
 .navbar-custom {
-    background-color: #4058a2;
+    background-color: #0c0c37;
     /* Color café oscuro personalizado */
 }
 
 /* Seccion de bienvenida */
 .section-custom {
-    background-color: #7693ff;
+    background-color: #f3f3f3;
     /* Color café claro personalizado */
     height: 250px;
     display: flex;
@@ -37,6 +39,9 @@ footer {
     align-items: center;
 
 }
+
+/* Seccion main de formularios */
+
 
 /* Icono de git */
 .fixed-icon {
@@ -62,7 +67,7 @@ footer {
     /* Aumenta el tamaño del contenido del ícono */
     height: 30px;
     /* Aumenta el tamaño del contenido del ícono */
-    fill: #7693ff;
+    fill: white;
     ;
     /* Establece el color del contenido del ícono a blanco */
 }
@@ -106,18 +111,13 @@ footer {
 }
 
 /* Orden Trabajo */
-/* .form-section {
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 10px;
-    margin-bottom: 10px;
-
-} */
-#cliente{
+#cliente {
     border-right: 1px solid #ccc;
     padding-right: 80px;
     margin-right: 10px;
 }
-#estadoVehiculo{
+
+#estadoVehiculo {
     border-top: 1px solid #ccc;
     padding-top: 10px;
     margin-top: 10px;
@@ -126,13 +126,62 @@ footer {
     margin-bottom: 10px;
 }
 
-#serviciosSeleccionados{
+#serviciosSeleccionados {
     border-bottom: 1px solid #ccc;
     padding-bottom: 10px;
     margin-bottom: 10px;
 }
-#botones{
+
+#botones {
     border-top: 1px solid #ccc;
     padding-top: 10px;
     margin-top: 10px;
 }
+
+/* Boton interuptor */
+
+.switch {
+    background: #343D5B;
+    border-radius: 1000px;
+    border: none;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    outline: none;
+}
+
+.switch::after {
+    content: "";
+    display: block;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    background: #F1F1F1;
+    top: 0;
+    left: 0;
+    right: unset;
+    border-radius: 100px;
+    transition: .3s ease all;
+    box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, .2);
+}
+
+.switch.active {
+    background: yellow;
+    color: #000;
+}
+
+.switch.active::after {
+    right: 0;
+    left: unset;
+}
+
+.switch span {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    display: block;
+    background: none;
+    color: #fff;
+}
+
+
