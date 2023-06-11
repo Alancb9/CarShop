@@ -10,11 +10,11 @@ export const reducer = (state, action) => {
         ...state,
         vehiculo: action.payload,
       };
-    // case 'SET_SERVICIOS':
-    //   return {
-    //     ...state,
-    //     servicios: action.payload,
-    //   };
+    case 'RESTORE_DATA':
+      return {
+        ...state,
+        ...action.payload,
+      };
     case 'SET_FECHA_ENTREGA':
       return {
         ...state,

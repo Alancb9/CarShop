@@ -2,19 +2,16 @@ import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AppContext } from '../context/AppContext';
 
+
 const OrdenTrabajo = () => {
   const { state } = useContext(AppContext);
   const [fechaEntrega, setFechaEntrega] = useState('');
   const history = useNavigate();
 
-  // const handleInputChange = (e) => {
-  //   setFechaEntrega(e.target.value);
-  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Aquí podrías realizar la lógica para generar la orden de trabajo final
-    history('/exito'); // Volver al inicio después de la aprobación final
+    history('/exito'); // Ir A la pagina de exito
   };
 
   const handleAtrasClick = () => {
@@ -32,15 +29,15 @@ const OrdenTrabajo = () => {
 
   return (
 
-    <div className="container">
-      <h2 className="text-center my-3">Orden de trabajo</h2>
+    <div className="container my-4">
+      <h2 className="text-center">Orden de trabajo</h2>
 
-      <div className="form-container mb-4">
+      <div className="form-container">
         <form onSubmit={handleSubmit} className="form-cliente">
 
           <div className="row mt-3">
-            <div className="col-md-6 ps-3">
-              <div id='cliente' className="form-section pe-1">
+            <div className="col-md-6">
+              <div id='cliente' className="form-section pe-1 ps-5">
                 <h3>Datos del cliente:</h3>
                 <p><strong>Nombre:</strong> {state.cliente.nombre}</p>
                 <p><strong>Email:</strong> {state.cliente.email}</p>
@@ -48,7 +45,7 @@ const OrdenTrabajo = () => {
                 <p><strong>Tipo de identificación:</strong> {state.cliente.tipoIdentificacion}</p>
               </div>
             </div>
-            <div className="col-md-6">
+            <div className="col-md-6 ps-5">
               <div className="form-section">
                 <h3>Datos del vehículo:</h3>
                 <p><strong>Marca:</strong> {state.vehiculo.marca}</p>
@@ -59,11 +56,11 @@ const OrdenTrabajo = () => {
             </div>
           </div >
 
-          <div id="estadoVehiculo" className="form-section">
+          <div id="estadoVehiculo" className="form-section ps-5">
             <p><strong>Estado exterior del vehiculo:</strong> {state.vehiculo.estadoExterior}</p>
           </div>
 
-          <div id="serviciosSeleccionados" className="form-section">
+          <div id="serviciosSeleccionados" className="form-section ps-5">
             <p><strong>Servicios seleccionados:</strong></p>
             <ul>
               {state.servicios.map((servicio) => (
@@ -74,12 +71,12 @@ const OrdenTrabajo = () => {
 
           <div className="row mt-3">
             <div className="col-md-6">
-              <div className="form-section">
+              <div className="form-section  ps-5">
                 <p><strong>Fecha de generación de orden:</strong> {fechaGeneracion}</p>
               </div>
             </div>
             <div className="col-md-6">
-              <div className="form-section">
+              <div className="form-section  ps-5">
                 <p><strong>Fecha estimada de entrega:</strong> {fechaEstimadaEntregaString}</p>
               </div>
             </div>

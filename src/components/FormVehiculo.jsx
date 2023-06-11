@@ -5,7 +5,7 @@ import { AppContext } from '../context/AppContext';
 const FormVehiculo = () => {
   const { state, dispatch } = useContext(AppContext);
   const [vehiculo, setVehiculo] = useState(state.vehiculo);
-  const [camposInvalidos, setCamposInvalidos] = useState([]);
+  const [camposInvalidos1, setCamposInvalidos] = useState([]);
   const history = useNavigate();
 
   const handleInputChange = (e) => {
@@ -18,18 +18,6 @@ const FormVehiculo = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    //Validacion
-    // if (
-    //   vehiculo.marca === '' ||
-    //   vehiculo.modelo === '' ||
-    //   vehiculo.placa === '' ||
-    //   vehiculo.nivelTanque === '' ||
-    //   vehiculo.nivelTanque === '' ||
-    //   vehiculo.estadoExterior === ''
-    // ) {
-    //   alert('Por favor, complete todos los campos.');
-    //   return;
-    // }
     const camposRequeridos = ['marca', 'modelo', 'placa', 'nivelTanque', 'estadoExterior'];
     const camposInvalidos = camposRequeridos.filter((campo) => vehiculo[campo] === '');
     if (camposInvalidos.length > 0) {
@@ -47,13 +35,13 @@ const FormVehiculo = () => {
   };
 
   return (
-    <div className="container">
-      <h2 className="text-center my-3">Datos del vehículo</h2>
+    <div className="container my-4">
+      <h2 className="text-center">Datos del vehículo</h2>
 
-      <div className="form-container mb-4">
+      <div className="form-container">
         <form onSubmit={handleSubmit} className="form-cliente">
 
-          {camposInvalidos.length > 0 && (
+          {camposInvalidos1.length > 0 && (
             <div className="alert alert-danger" role="alert">
               Los campos en rojo son obligatorios.
             </div>
@@ -62,13 +50,14 @@ const FormVehiculo = () => {
           <div className="row mt-3">
             <div className="col-md-12">
               <div className="form-group">
-                <label htmlFor="marca">Marca del vehiculo:</label>
+                <label htmlFor="marca">Marca del vehículo:</label>
                 <input
+                  placeholder='Ejm: Chevrolet, KIA, etc.'
                   type="text"
                   name="marca"
                   value={vehiculo.marca}
                   onChange={handleInputChange}
-                  className={`form-control ${camposInvalidos.includes('marca') ? 'is-invalid' : ''}`}
+                  className={`form-control ${camposInvalidos1.includes('marca') ? 'is-invalid' : ''}`}
                 />
               </div>
             </div>
@@ -79,11 +68,12 @@ const FormVehiculo = () => {
               <div className="form-group">
                 <label htmlFor="modelo">Modelo:</label>
                 <input
+                  placeholder='Ejm: Vitara, Tucson'
                   type="text"
                   name="modelo"
                   value={vehiculo.modelo}
                   onChange={handleInputChange}
-                  className={`form-control ${camposInvalidos.includes('modelo') ? 'is-invalid' : ''}`}
+                  className={`form-control ${camposInvalidos1.includes('modelo') ? 'is-invalid' : ''}`}
                 />
               </div>
             </div>
@@ -91,11 +81,12 @@ const FormVehiculo = () => {
               <div className="form-group">
                 <label htmlFor="placa">Placa:</label>
                 <input
+                  placeholder='Ejm: XXXX-xxx'
                   type="text"
                   name="placa"
                   value={vehiculo.placa}
                   onChange={handleInputChange}
-                  className={`form-control ${camposInvalidos.includes('placa') ? 'is-invalid' : ''}`}
+                  className={`form-control ${camposInvalidos1.includes('placa') ? 'is-invalid' : ''}`}
                 />
               </div>
             </div>
@@ -106,11 +97,12 @@ const FormVehiculo = () => {
               <div className="form-group">
                 <label htmlFor="nivelTanque">Nivel del tanque de gasolina:</label>
                 <input
+                  placeholder='Ejm: X%'
                   type="text"
                   name="nivelTanque"
                   value={vehiculo.nivelTanque}
                   onChange={handleInputChange}
-                  className={`form-control ${camposInvalidos.includes('nivelTanque') ? 'is-invalid' : ''}`}
+                  className={`form-control ${camposInvalidos1.includes('nivelTanque') ? 'is-invalid' : ''}`}
                 />
               </div>
             </div>
@@ -121,10 +113,11 @@ const FormVehiculo = () => {
               <div className="form-group">
                 <label htmlFor="estadoExterior">Estado exterior del vehiculo</label>
                 <textarea
+                  placeholder='Detallar abolladuras, rayones o cualquier dato relevante sobre el estado exterior del vehículo.'
                   name="estadoExterior"
                   value={vehiculo.estadoExterior}
                   onChange={handleInputChange}
-                  className={`form-control ${camposInvalidos.includes('estadoExterior') ? 'is-invalid' : ''}`}
+                  className={`form-control ${camposInvalidos1.includes('estadoExterior') ? 'is-invalid' : ''}`}
                 ></textarea>
               </div>
             </div>

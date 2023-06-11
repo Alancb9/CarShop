@@ -21,10 +21,6 @@ const Servicios = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // if (state.servicios.length === 0) {
-    //   alert('Por favor, seleccione al menos un servicio.');
-    //   return;
-    // }
     if (state.servicios.length === 0) {
       setError(true);
       return;
@@ -38,8 +34,8 @@ const Servicios = () => {
   };
 
   return (
-    <div className="container">
-      <h2 className="text-center my-3">Selección de servicios</h2>
+    <div className="container my-4">
+      <h2 className="text-center">Selección de servicios</h2>
 
       {error && (
         <div className="alert alert-danger" role="alert">
@@ -47,7 +43,7 @@ const Servicios = () => {
         </div>
       )}
 
-      <div className="form-container mb-4">
+      <div className="form-container">
         <form onSubmit={handleSubmit} className="form-cliente">
 
           <div className="form-check">
