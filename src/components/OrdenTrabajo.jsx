@@ -1,11 +1,11 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AppContext } from '../context/AppContext';
+import  TituloForm from '../components/titulos/TituloForm.jsx';
 
 
 const OrdenTrabajo = () => {
   const { state } = useContext(AppContext);
-  const [fechaEntrega, setFechaEntrega] = useState('');
   const history = useNavigate();
 
 
@@ -30,7 +30,7 @@ const OrdenTrabajo = () => {
   return (
 
     <div className="container my-4">
-      <h2 className="text-center">Orden de trabajo</h2>
+      <TituloForm className={'text-center'} text='Orden de trabajo'/>
 
       <div className="form-container">
         <form onSubmit={handleSubmit} className="form-cliente">

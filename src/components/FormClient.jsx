@@ -2,6 +2,8 @@ import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AppContext } from '../context/AppContext';
 import 'bootstrap/dist/css/bootstrap.css';
+import TituloForm from '../components/titulos/TituloForm.jsx';
+import LabelForm from '../components/labels/LabelForm.jsx';
 
 
 const FormCliente = () => {
@@ -9,11 +11,8 @@ const FormCliente = () => {
   const [cliente, setCliente] = useState(state.cliente);
   const [camposInvalidos1, setCamposInvalidos] = useState([]);
   const history = useNavigate();
-  const { isDarkMode } = state;
-  console.log(isDarkMode);
-  console.log("hola1")
 
-  
+
 
   const handleInputChange = (e) => {
     setCliente({
@@ -30,7 +29,7 @@ const FormCliente = () => {
     if (camposInvalidos.length > 0) {
       setCamposInvalidos(camposInvalidos);
       return;
-    }
+    };
 
     dispatch({ type: 'SET_CLIENTE', payload: cliente });
     history('/vehiculo');
@@ -38,7 +37,7 @@ const FormCliente = () => {
 
   return (
     <div className={`container my-4`}>
-      <h2 className="text-center ">Datos del cliente</h2>
+      <TituloForm className={'text-center'} text='Datos del cliente' />
 
       <div className="form-container">
         <form onSubmit={handleSubmit} className={`form-cliente`}>
@@ -52,11 +51,11 @@ const FormCliente = () => {
           <div className="row mt-3">
             <div className="col-md-12">
               <div className="form-group">
-                <label htmlFor="nombre">Nombre del cliente:</label>
+                <LabelForm tipo={'nombre'} text={'Nombre del cliente:'} />
                 <input
                   placeholder='Nombres y Apellidos'
                   type="text"
-                  id="nombre"
+                  // id="nombre"
                   name="nombre"
                   value={cliente.nombre}
                   onChange={handleInputChange}
@@ -69,11 +68,12 @@ const FormCliente = () => {
           <div className="row mt-3">
             <div className="col-md-6">
               <div className="form-group">
-                <label htmlFor="email">Correo electrónico:</label>
+                {/* <label htmlFor="email">Correo electrónico:</label> */}
+                <LabelForm tipo={'email'} text={'Correo electrónico:'} />
                 <input
                   placeholder='Ejm: xxxx@xxxx.com'
                   type="email"
-                  id="email"
+                  // id="email"
                   name="email"
                   value={cliente.email}
                   onChange={handleInputChange}
@@ -83,11 +83,11 @@ const FormCliente = () => {
             </div>
             <div className="col-md-6">
               <div className="form-group">
-                <label htmlFor="contacto">Número de contacto:</label>
+                <LabelForm tipo={'contacto'} text={'Número de contacto:'} />
                 <input
                   placeholder='Teléfono fijo o movil'
                   type="text"
-                  id="contacto"
+                  // id="contacto"
                   name="contacto"
                   value={cliente.contacto}
                   onChange={handleInputChange}
@@ -100,9 +100,9 @@ const FormCliente = () => {
           <div className="row mt-3">
             <div className="col-md-6">
               <div className="form-group">
-                <label htmlFor="tipoIdentificacion">Tipo de identificación:</label>
+                <LabelForm tipo={'tipoIdentificacion'} text={'Tipo de identificación:'} />
                 <select
-                  id="tipoIdentificacion"
+                  // id="tipoIdentificacion"
                   name="tipoIdentificacion"
                   value={cliente.tipoIdentificacion}
                   onChange={handleInputChange}
@@ -117,11 +117,11 @@ const FormCliente = () => {
             </div>
             <div className="col-md-6">
               <div className="form-group">
-                <label htmlFor="identificacion">Numero de identificación:</label>
+                <LabelForm tipo={'identificacion'} text={'Numero de identificación:'} />
                 <input
                   placeholder='Identificación'
                   type="text"
-                  id="identificacion"
+                  // id="identificacion"
                   name="identificacion"
                   value={cliente.identificacion}
                   onChange={handleInputChange}

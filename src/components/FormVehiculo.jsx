@@ -1,6 +1,8 @@
 import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AppContext } from '../context/AppContext';
+import  TituloForm from '../components/titulos/TituloForm.jsx';
+import LabelForm from '../components/labels/LabelForm.jsx';
 
 const FormVehiculo = () => {
   const { state, dispatch } = useContext(AppContext);
@@ -26,8 +28,8 @@ const FormVehiculo = () => {
     }
 
 
-    dispatch({ type: 'SET_VEHICULO', payload: vehiculo });
-    history('/servicios');
+    dispatch({ type: 'SET_VEHICULO', payload: vehiculo });  //Seteamos la informacion del Vehiculo en initialState
+    history('/servicios');  //Ir a form de servicios
   };
 
   const handleAtrasClick = () => {
@@ -36,7 +38,7 @@ const FormVehiculo = () => {
 
   return (
     <div className="container my-4">
-      <h2 className="text-center">Datos del vehículo</h2>
+      <TituloForm className={'text-center'} text='Datos del vehículo'/>
 
       <div className="form-container">
         <form onSubmit={handleSubmit} className="form-cliente">
@@ -50,7 +52,7 @@ const FormVehiculo = () => {
           <div className="row mt-3">
             <div className="col-md-12">
               <div className="form-group">
-                <label htmlFor="marca">Marca del vehículo:</label>
+                <LabelForm tipo={'marca'} text={'Marca del vehículo:'}/>
                 <input
                   placeholder='Ejm: Chevrolet, KIA, etc.'
                   type="text"
@@ -66,7 +68,7 @@ const FormVehiculo = () => {
           <div className="row mt-3">
             <div className="col-md-6">
               <div className="form-group">
-                <label htmlFor="modelo">Modelo:</label>
+                <LabelForm tipo={'modelo'} text={'Modelo:'}/>
                 <input
                   placeholder='Ejm: Vitara, Tucson'
                   type="text"
@@ -79,7 +81,7 @@ const FormVehiculo = () => {
             </div>
             <div className="col-md-6">
               <div className="form-group">
-                <label htmlFor="placa">Placa:</label>
+                <LabelForm tipo={'placa'} text={'Placa:'}/>
                 <input
                   placeholder='Ejm: XXXX-xxx'
                   type="text"
@@ -95,7 +97,7 @@ const FormVehiculo = () => {
           <div className="row mt-3">
             <div className="col-md-12">
               <div className="form-group">
-                <label htmlFor="nivelTanque">Nivel del tanque de gasolina:</label>
+                <LabelForm tipo={'nivelTanque'} text={'Nivel del tanque de gasolina:'}/>
                 <input
                   placeholder='Ejm: X%'
                   type="text"
@@ -111,7 +113,7 @@ const FormVehiculo = () => {
           <div className="row mt-3">
             <div className="col-ms-12">
               <div className="form-group">
-                <label htmlFor="estadoExterior">Estado exterior del vehiculo</label>
+                <LabelForm tipo={'estadoExterior'} text={'Estado exterior del vehiculo:'}/>
                 <textarea
                   placeholder='Detallar abolladuras, rayones o cualquier dato relevante sobre el estado exterior del vehículo.'
                   name="estadoExterior"

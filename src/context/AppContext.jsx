@@ -1,6 +1,7 @@
-import React, { createContext, useReducer, useEffect } from 'react';
+import React, { createContext, useReducer } from 'react';
 import { reducer } from './reducers.jsx';
 
+//Coleccion en donde se guardaran los datos de los formularios
 const initialState = {
   cliente: {
     nombre: '',
@@ -23,18 +24,6 @@ const initialState = {
 export const AppContext = createContext();
 const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
-
-  // Recuperar datos del Local Storage al cargar el componente
-  useEffect(() => {
-    const storedData = localStorage.getItem('appData');
-    if (storedData) {
-      dispatch({ type: 'RESTORE_DATA', payload: JSON.parse(storedData) });
-    }
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem('appData', JSON.stringify(state));
-  }, [state]);
 
   return (
     <AppContext.Provider value={{ state, dispatch }}>

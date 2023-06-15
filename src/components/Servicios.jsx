@@ -2,6 +2,8 @@ import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AppContext } from '../context/AppContext';
 import 'bootstrap/dist/css/bootstrap.css';
+import TituloForm from '../components/titulos/TituloForm.jsx';
+import LabelFormCheck from '../components/labels/LabelFormCheck.jsx';
 
 const Servicios = () => {
   const { state, dispatch } = useContext(AppContext);
@@ -35,7 +37,7 @@ const Servicios = () => {
 
   return (
     <div className="container my-4">
-      <h2 className="text-center">Selección de servicios</h2>
+      <TituloForm className={'text-center'} text='Selección de servicios'/>
 
       {error && (
         <div className="alert alert-danger" role="alert">
@@ -47,9 +49,7 @@ const Servicios = () => {
         <form onSubmit={handleSubmit} className="form-cliente">
 
           <div className="form-check">
-            <label className="form-check-label" htmlFor="Cambio de aceite">
-              Cambio de aceite
-            </label>
+            <LabelFormCheck className='form-check-label' tipo="Cambio de aceite" text='Cambio de aceite'/>
             <input className="form-check-input"
               type="checkbox"
               value="Cambio de aceite"
@@ -60,9 +60,7 @@ const Servicios = () => {
           </div>
 
           <div className="form-check">
-            <label className="form-check-label" htmlFor="Cambio de frenos">
-              Cambio de frenos
-            </label>
+            <LabelFormCheck className='form-check-label' tipo="Cambio de frenos" text='Cambio de frenos'/>
             <input className="form-check-input"
               type="checkbox"
               value="Cambio de frenos"
@@ -73,9 +71,7 @@ const Servicios = () => {
           </div>
 
           <div className="form-check">
-            <label className="form-check-label" htmlFor="Alineacion y balanceo">
-              Alineacion y balanceo
-            </label>
+            <LabelFormCheck className='form-check-label' tipo="Alineacion y balanceo" text='Alineacion y balanceo'/>
             <input className="form-check-input"
               type="checkbox"
               value="Alineacion y balanceo"
@@ -86,9 +82,7 @@ const Servicios = () => {
           </div>
 
           <div className="form-check">
-            <label className="form-check-label" htmlFor="Diagnostico General">
-              Diagnostico General
-            </label>
+            <LabelFormCheck className='form-check-label' tipo="Diagnostico General" text='Diagnostico General'/>
             <input className="form-check-input"
               type="checkbox"
               value="Diagnostico General"
@@ -99,9 +93,7 @@ const Servicios = () => {
           </div>
 
           <div className="form-check">
-            <label className="form-check-label" htmlFor="Revision del sistema electrico">
-              Revision del sistema electrico
-            </label>
+            <LabelFormCheck className='form-check-label' tipo="Revision del sistema electrico" text='Revision del sistema electrico'/>
             <input className="form-check-input"
               type="checkbox"
               value="Revision del sistema electrico"
@@ -112,9 +104,7 @@ const Servicios = () => {
           </div>
 
           <div className="form-check">
-            <label className="form-check-label" htmlFor="Reparacion de neumaticos">
-              Reparacion de neumaticos
-            </label>
+            <LabelFormCheck className='form-check-label' tipo="Reparacion de neumaticos" text='Reparacion de neumaticos'/>
             <input className="form-check-input"
               type="checkbox"
               value="Reparacion de neumaticos"
@@ -125,9 +115,7 @@ const Servicios = () => {
           </div>
 
           <div className="form-check">
-            <label className="form-check-label" htmlFor="Mantenimiento del sistema de aire acondicionado">
-              Mantenimiento del sistema de aire acondicionado
-            </label>
+            <LabelFormCheck className='form-check-label' tipo="Mantenimiento del sistema de aire acondicionado" text='Mantenimiento del sistema de aire acondicionado'/>
             <input className="form-check-input"
               type="checkbox"
               value="Mantenimiento del sistema de aire acondicionado"
@@ -141,10 +129,10 @@ const Servicios = () => {
             <button class="btn btn-primary me-md-2" type="button" onClick={handleAtrasClick}>Atrás</button>
             <button type="submit" className="btn btn-primary">Siguiente</button>
           </div>
-        </form>
-      </div>
+        </form >
+      </div >
 
-    </div>
+    </div >
   );
 };
 

@@ -1,3 +1,5 @@
+//Modulo En donde se reali1zaran acciones de guardado eliminacion de datos segun el casoy
+ 
 export const reducer = (state, action) => {
   switch (action.type) {
     case 'SET_CLIENTE':
