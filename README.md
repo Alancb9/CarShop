@@ -1,4 +1,25 @@
-# Getting Started with Create React App
+# Aplicacion de formularios para mantenimiento de vehiculos CarShop desarrollada en REACT
+
+## Descripción General
+
+
+<justify>Esta aplicación fue creada bajo la necesidad del ingreso de datos para el mantenimiento de vehículos,
+consta de 3 formularios: datos del cliente, datos del vehículo y otro de servicio, una vez llenados,
+se muestra por pantalla la orden de compra con el resumen de los datos ingresados previamente en los forms.
+Se puede navegar entre formularios con un boton de atras y siguiente, en la pantalla de orden de compra se muestra
+un boton de aprobar orden, cuando se da clic en este boton se genera un mensaje de ORDEN GENERADA EXITOSAMENTE,
+con un boton de generar una nueva cita que redirige al primer formulario.
+Cada formulario esta validado y no se puede avanzar al siguiente formulario si no se llenan los datos requeridos.
+La aplicación cuanta con un modo oscuro y un color claro para gusto del usuario, una barra de navegación que contiene
+el nombre de la app, y un botón interruptor para alternar entre el modo oscuro y claro tambien cuenta con un footer
+con el nombre del desarrollador y un icono de github que al cliquearlo llevara al usuario hacia el repositorio del código fuente</justify>
+
+## Descripción del código
+
+
+
+
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
