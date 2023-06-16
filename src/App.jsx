@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import FormClient from './components/FormClient.jsx';
 import FormVehiculo from './components/FormVehiculo.jsx';
@@ -38,7 +38,25 @@ function App() {
 
   };
 
-  
+  useEffect(() => {
+    // Cargar el estado de isDarkMode desde el almacenamiento local al iniciar la aplicación
+    const savedDarkMode = localStorage.getItem('isDarkMode');
+    if (savedDarkMode) {
+      setIsDarkMode(JSON.parse(savedDarkMode));
+    } else {
+      setIsDarkMode(false); // Valor predeterminado si no hay estado guardado
+    }
+  }, []);
+
+  useEffect(() => {
+    // Guardar el estado de isDarkMode en el almacenamiento local cuando cambia
+    localStorage.setItem('isDarkMode', JSON.stringify(isDarkMode));
+  }, [isDarkMode]);
+
+  if (isDarkMode === null) {
+    // Mostrar un componente de carga o un mensaje mientras se carga el estado
+    return <div>Cargando...</div>;
+  }
 
   return (
 
