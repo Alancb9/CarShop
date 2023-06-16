@@ -27,7 +27,6 @@ const Servicios = () => {
       setError(true);
       return;
     }
-
     history('/orden');
   };
 

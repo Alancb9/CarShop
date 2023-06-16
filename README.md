@@ -70,6 +70,8 @@ El comando `npm install -g <paquete>` permite instalar paquetes de manera global
 Dentro de la carpeta donde se instalo react ejecutamos el siguiente comando `npx create-react-app <Nombre de la aplicacion>`, luego de esto se creara una subcarpeta con toda la estructura por defecto para una aplicacion de reactA partir de aqui se desarrollo toda la logica de programacion
 mencionada en lineas anteriores.
 
+Si deseas informacion mas especifica puedes visitar [Create React App](https://github.com/facebook/create-react-app).
+
 ## Ejecutar aplicacion en modo de desarrollo
 
 Para visualizar los cambios que le estas haciendo a tu aplicacion de react ejecuta el comando `npm start` con esto se ejecutara un servidor local y en tu navegador podras ver la aplicacion en [http://localhost:3000/](http://localhost:3000/) en esta pagina podras ver los cambios y los errores que contengas en tiempo real en la pagina del navegador.
@@ -105,8 +107,6 @@ Una vez instaladas las dependencias ejecutamos `npm start` para que se ejecute u
 
 
 
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
