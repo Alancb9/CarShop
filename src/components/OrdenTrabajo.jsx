@@ -2,20 +2,25 @@ import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AppContext } from '../context/AppContext';
 import  TituloForm from '../components/titulos/TituloForm.jsx';
+// AWS
 import AWS from 'aws-sdk';
+// AWS
 
+// AWS credenciales
 AWS.config.update({
-  accessKeyId: 'ASIAWTCW45KDFDSCHDHV',
-  secretAccessKey: '29XoaWeb9Z2QeMf+9HsftY2+I9jMyCvtwkxQ4Apa',
+  accessKeyId: 'ASIAWTCW45KDNZ5ZON7Q',
+  secretAccessKey: 'NnNAZQ/4/xvvjfmXHFcoTfJ5jLiaJa3+kFrl+ZGy',
   region: 'us-east-1',
-  sessionToken: 'FwoGZXIvYXdzEAcaDP5Sytn4AgjBj1lYkyK+AY1tjVOn1AesgLzlc3s76c1KX2IXjCYzVn3i1zJiZgHoPGimaeAjAzaa17hm7UxFsLIGixCxmrkMjgRuYI58gdx48GFV3gL2cebiuieMTJUh2S6TAO1BDBDYrOnf9gsu9tgZGqLIMc6hoEAPzNSiWoCQELcp+X+w+C9HEwXQV5OgpHEfvUMAR9mtq+xSV0d5/xvefrVYPPGFWu/cEesyTbxSUrP0KKwzZaC/OTR18I5jauvr8QiUqoJjJOk+JuMo8p2zpAYyLYo1MBR/+c4uM+eBpOzDV52VVzt3RkvagemR3l3VrW5RSwDTFz++n+7ylIevug=='
+  sessionToken: 'FwoGZXIvYXdzEAwaDJvGL9+cImem1btSdSK+AcIHpZ59btuZTqJnMXPvoJ4OP8PsRUxiSjR0sYArQZ37KMLou9Rox/arQ9Dq00IcFBuVFM+pjWu5zwmeIF8kGhahe9lhEbX56fK4l42zhHQ5XMd6SXQ/kvgEGbXkOZWN3dXKaimHmxDq5AU5NikLbKTGjS70N+skv6tiONmRlECutc3SBcKMja14qBH8+DJerQap+WRamKghCsJslNqH4kK2Z28X6UpVm7DoipGv4oplyWSZBIDnN/ydXzbkZ+Uo/Le0pAYyLaKFqheuloo7/J2q7tpdW8aYyUdaIow3EUpQzxlM2mW9zyn+sHZkCqV5er2l9w=='
   });
-
+// AWS
 
 const OrdenTrabajo = () => {
   const { state } = useContext(AppContext);
   const history = useNavigate();
+  // AWS
   const dynamo = new AWS.DynamoDB();
+  // AWS
 
   // Obtener la fecha y hora actual
   const fechaGeneracion = new Date().toLocaleString();
@@ -24,11 +29,13 @@ const OrdenTrabajo = () => {
   const fechaEstimadaEntrega = new Date();
   fechaEstimadaEntrega.setDate(fechaEstimadaEntrega.getDate() + 7);
   const fechaEstimadaEntregaString = fechaEstimadaEntrega.toLocaleString();
+
+  // AWS
   const lista = [];
   state.servicios.map((servicio) => (
     lista.push({S: servicio})
   ))
-
+  // AWS Atributos
   var params = {
     TableName: 'formulario',
     Item:{
@@ -58,13 +65,16 @@ const OrdenTrabajo = () => {
         console.log(data);
       };
     });
-
+  // AWS
 
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    // AWS
     putDynamoElements();
+    // AWS
+
     history('/exito'); // Ir A la pagina de exito
   };
 
