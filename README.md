@@ -134,11 +134,34 @@ Al usar la aplicación y dar clic en `Aprobar orden`, los datos ingresados previ
    ```
    y dar clic en `Save changes`.
 
-4. Ir a seccion de `Properties`, en la parte final dar clic en `Edit` en la seccion `Static website hosting`.
+4. En la sección de `Cross-origin resource sharing (CORS)` damos clic en `Edit` y pegamos el siguiente códigoÑ
+    ```
+    [
+        {
+            "AllowedHeaders": [
+                "*"
+            ],
+            "AllowedMethods": [
+                "PUT",
+                "POST",
+                "GET"
+            ],
+            "AllowedOrigins": [
+                "*"
+            ],
+            "ExposeHeaders": [
+                "ETag"
+            ]
+        }
+    ]
 
-5. Dar clic en `Enable`, escribimos `index.html` en `index document`, dar clic en `Save changes` y en la seccion `Static website hosting` se generará la URL.
+    ```
 
-6. Cargar en el bucket todo lo que se encuentre dentro de la carpeta `build`, una vez cargado los archivos se puede visualizar la pagina en la URL que se genero en  la seccion `Static website hosting`
+5. Ir a seccion de `Properties`, en la parte final dar clic en `Edit` en la seccion `Static website hosting`.
+
+6. Dar clic en `Enable`, escribimos `index.html` en `index document`, dar clic en `Save changes` y en la seccion `Static website hosting` se generará la URL.
+
+7. Cargar en el bucket todo lo que se encuentre dentro de la carpeta `build`, una vez cargado los archivos se puede visualizar la pagina en la URL que se genero en  la seccion `Static website hosting`
 
 
 
