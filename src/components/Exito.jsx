@@ -19,7 +19,6 @@ const Exito = () => {
 
       <form onSubmit={handleReservarOtraCita} className="form-cliente py-5">
       <TituloForm className={'text-center my-5'} text='Cita reservada exitosamente'/>
-        {/* <h2 className="text-center my-5">Cita reservada exitosamente</h2> */}
         <p className="text-center my-3">Felicidades, tu cita ha sido reservada correctamente.</p>
         <div className="d-md-flex justify-content-md-center my-5">
           <button type="submit" className="btn btn-primary">Reservar otra cita</button>

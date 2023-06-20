@@ -5,6 +5,7 @@ import  TituloForm from '../components/titulos/TituloForm.jsx';
 import LabelForm from '../components/labels/LabelForm.jsx';
 
 const FormVehiculo = () => {
+  //Use Context y State
   const { state, dispatch } = useContext(AppContext);
   const [vehiculo, setVehiculo] = useState(state.vehiculo);
   const [camposInvalidos1, setCamposInvalidos] = useState([]);
@@ -20,6 +21,7 @@ const FormVehiculo = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    //Validacion
     const camposRequeridos = ['marca', 'modelo', 'placa', 'nivelTanque', 'estadoExterior'];
     const camposInvalidos = camposRequeridos.filter((campo) => vehiculo[campo] === '');
     if (camposInvalidos.length > 0) {
@@ -33,7 +35,7 @@ const FormVehiculo = () => {
   };
 
   const handleAtrasClick = () => {
-    history('/cliente');
+    history('/cliente');//Ir a form de cliente
   };
 
   return (
@@ -43,6 +45,7 @@ const FormVehiculo = () => {
       <div className="form-container">
         <form onSubmit={handleSubmit} className="form-cliente">
 
+          {/* Mensaje de alerta para campos vacios */}
           {camposInvalidos1.length > 0 && (
             <div className="alert alert-danger" role="alert">
               Los campos en rojo son obligatorios.

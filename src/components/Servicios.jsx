@@ -14,9 +14,9 @@ const Servicios = () => {
     const selectedService = e.target.value;
 
     if (e.target.checked) {
-      dispatch({ type: 'ADD_SERVICIO', payload: selectedService });
+      dispatch({ type: 'ADD_SERVICIO', payload: selectedService }); //Agregamos los servicios cuando de clic en siguiente
     } else {
-      dispatch({ type: 'REMOVE_SERVICIO', payload: selectedService });
+      dispatch({ type: 'REMOVE_SERVICIO', payload: selectedService });  //Removemos el servicio en caso de que desmarque una casilla
     }
   };
 
@@ -27,17 +27,20 @@ const Servicios = () => {
       setError(true);
       return;
     }
-    history('/orden');
+    history('/orden');  // Ir a form de orden
   };
 
   const handleAtrasClick = () => {
-    history('/vehiculo');
+    history('/vehiculo'); //Ir a form de vehiculo
   };
 
   return (
+
+    // Ingreso de servicios
     <div className="container my-4">
       <TituloForm className={'text-center'} text='Selección de servicios'/>
 
+      {/* Mensaje de alerta para campos vacios */}
       {error && (
         <div className="alert alert-danger" role="alert">
           Debes elegir al menos uno de los campos

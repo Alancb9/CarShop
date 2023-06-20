@@ -7,6 +7,8 @@ import LabelForm from '../components/labels/LabelForm.jsx';
 
 
 const FormCliente = () => {
+
+  //Use Context y State
   const { state, dispatch } = useContext(AppContext);
   const [cliente, setCliente] = useState(state.cliente);
   const [camposInvalidos1, setCamposInvalidos] = useState([]);
@@ -23,7 +25,7 @@ const FormCliente = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    //Validacion
     const camposRequeridos = ['nombre', 'email', 'contacto', 'tipoIdentificacion', 'identificacion'];
     const camposInvalidos = camposRequeridos.filter((campo) => cliente[campo] === '');
     if (camposInvalidos.length > 0) {
@@ -31,8 +33,8 @@ const FormCliente = () => {
       return;
     };
 
-    dispatch({ type: 'SET_CLIENTE', payload: cliente });
-    history('/vehiculo');
+    dispatch({ type: 'SET_CLIENTE', payload: cliente });  //Seteamos la informacion del Cliente en initialState
+    history('/vehiculo'); //Regresar a form de vehiculo
   };
 
   return (
@@ -42,6 +44,7 @@ const FormCliente = () => {
       <div className="form-container">
         <form onSubmit={handleSubmit} className={`form-cliente`}>
 
+          {/* Mensaje de alerta para campos vacios */}
           {camposInvalidos1.length > 0 && (
             <div className="alert alert-danger" role="alert">
               Los campos en rojo son obligatorios.
@@ -68,12 +71,11 @@ const FormCliente = () => {
           <div className="row mt-3">
             <div className="col-md-6">
               <div className="form-group">
-                {/* <label htmlFor="email">Correo electrónico:</label> */}
+                
                 <LabelForm tipo={'email'} text={'Correo electrónico:'} />
                 <input
                   placeholder='Ejm: xxxx@xxxx.com'
-                  type="email"
-                  // id="email"
+                  type="email"         
                   name="email"
                   value={cliente.email}
                   onChange={handleInputChange}
@@ -86,8 +88,7 @@ const FormCliente = () => {
                 <LabelForm tipo={'contacto'} text={'Número de contacto:'} />
                 <input
                   placeholder='Teléfono fijo o movil'
-                  type="text"
-                  // id="contacto"
+                  type="text"      
                   name="contacto"
                   value={cliente.contacto}
                   onChange={handleInputChange}
@@ -102,7 +103,7 @@ const FormCliente = () => {
               <div className="form-group">
                 <LabelForm tipo={'tipoIdentificacion'} text={'Tipo de identificación:'} />
                 <select
-                  // id="tipoIdentificacion"
+                  
                   name="tipoIdentificacion"
                   value={cliente.tipoIdentificacion}
                   onChange={handleInputChange}
@@ -121,7 +122,7 @@ const FormCliente = () => {
                 <input
                   placeholder='Identificación'
                   type="text"
-                  // id="identificacion"
+                  
                   name="identificacion"
                   value={cliente.identificacion}
                   onChange={handleInputChange}

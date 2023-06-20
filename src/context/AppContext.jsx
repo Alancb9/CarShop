@@ -20,7 +20,7 @@ const initialState = {
   servicios: [],
   fechaEntrega: '',
 };
-
+//uso del children
 export const AppContext = createContext();
 const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);

@@ -13,11 +13,12 @@ import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
 
 
 function App() {
-
+  //Uso de State
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [tooltipVisible, setTooltipVisible] = useState(false);
   const [tooltipVisibleGithub, setTooltipVisibleGithub] = useState(false);
 
+  //Visibilidad del tooltip de interruptor
   const handleTooltipClick = () => {
     setTooltipVisible(true);
     setTimeout(() => {
@@ -25,6 +26,7 @@ function App() {
     }, 2000);
   };
 
+  //Visibilidad del tooltip de git
   const handleGithubLinkClick = () => {
     setTooltipVisibleGithub(true);
     setTimeout(() => {
