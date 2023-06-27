@@ -1,10 +1,18 @@
 import React from 'react';
 
-const LabelForm = ({tipo, text}) => {
-    return(
-        <label htmlFor={tipo}>{text}</label>
-    );
-
+//Componente reutilizable Label, tanto para el form de eleccion multiple como para los formularios de relleno
+const LabelForm = ({ className, tipo, text }) => {
+  return (
+    <>
+      {className === 'form-check-label' ? (
+        <label className = {className} htmlFor = {tipo}>
+          {text}
+        </label>
+      ) : (
+        <label htmlFor = {tipo}>{text}</label>
+      )}
+    </>
+  );
 };
 
 export default LabelForm;

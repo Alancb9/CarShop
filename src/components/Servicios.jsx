@@ -2,8 +2,9 @@ import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AppContext } from '../context/AppContext';
 import 'bootstrap/dist/css/bootstrap.css';
-import TituloForm from '../components/titulos/TituloForm.jsx';
-import LabelFormCheck from '../components/labels/LabelFormCheck.jsx';
+import TituloForm from '../components/titles/TituloForm.jsx';
+import InputForm from '../components/inputs/InputForm.jsx';
+import ButtonForm from './buttons/buttonForm';
 
 const Servicios = () => {
   const { state, dispatch } = useContext(AppContext);
@@ -37,101 +38,121 @@ const Servicios = () => {
   return (
 
     // Ingreso de servicios
-    <div className="container my-4">
-      <TituloForm className={'text-center'} text='Selección de servicios'/>
+    <div className = 'container my-4'>
+      <TituloForm className  ={'text-center'} text = 'Selección de servicios' />
 
-      {/* Mensaje de alerta para campos vacios */}
-      {error && (
-        <div className="alert alert-danger" role="alert">
-          Debes elegir al menos uno de los campos
-        </div>
-      )}
 
-      <div className="form-container">
-        <form onSubmit={handleSubmit} className="form-cliente">
 
-          <div className="form-check">
-            <LabelFormCheck className='form-check-label' tipo="Cambio de aceite" text='Cambio de aceite'/>
-            <input className="form-check-input"
-              type="checkbox"
-              value="Cambio de aceite"
-              id="Cambio de aceite"
-              checked={state.servicios.includes("Cambio de aceite")}
-              onChange={handleCheckboxChange}
-            />
+      <div className = 'form-container'>
+
+        {/* Formulario para seleccion multiple de servicios */}
+        <form onSubmit = {handleSubmit} className = 'form-cliente'>
+
+          {/* Mensaje de alerta para campos vacios */}
+          {error && (
+            <div className = 'alert alert-danger' role = 'alert'>
+              Debes elegir al menos uno de los campos
+            </div>
+          )}
+          
+          <InputForm
+            classDiv = 'form-check'
+            claseLabel = 'form-check-label'
+            typeLabel = 'Cambio de aceite'
+            text = 'Cambio de aceite'
+            classCheckbox = 'form-check-input'
+            type = 'checkbox'
+            value = 'Cambio de aceite'
+            idCB = 'Cambio de aceite'
+            onChange = {handleCheckboxChange}
+            checked = {state.servicios.includes('Cambio de aceite')}
+          />
+
+          <InputForm
+            classDiv = 'form-check'
+            claseLabel = 'form-check-label'
+            typeLabel = 'Cambio de frenos'
+            text = 'Cambio de frenos'
+            classCheckbox = 'form-check-input'
+            type = 'checkbox'
+            value = 'Cambio de frenos'
+            idCB = 'Cambio de frenos'
+            onChange = {handleCheckboxChange}
+            checked = {state.servicios.includes('Cambio de frenos')}
+          />
+
+          <InputForm
+            classDiv = 'form-check'
+            claseLabel = 'form-check-label'
+            typeLabel = 'Alineacion y balanceo'
+            text = 'Alineacion y balanceo'
+            classCheckbox = 'form-check-input'
+            type = 'checkbox'
+            value = 'Alineacion y balanceo'
+            idCB = 'Alineacion y balanceo'
+            onChange = {handleCheckboxChange}
+            checked = {state.servicios.includes('Alineacion y balanceo')}
+          />
+
+          <InputForm
+            classDiv = 'form-check'
+            claseLabel = 'form-check-label'
+            typeLabel = 'Diagnostico General'
+            text = 'Diagnostico General'
+            classCheckbox = 'form-check-input'
+            type = 'checkbox'
+            value = 'Diagnostico General'
+            idCB = 'Diagnostico General'
+            onChange = {handleCheckboxChange}
+            checked = {state.servicios.includes('Diagnostico General')}
+          />
+
+          <InputForm
+            classDiv = 'form-check'
+            claseLabel = 'form-check-label'
+            typeLabel = 'Revision del sistema electrico'
+            text = 'Revision del sistema electrico'
+            classCheckbox = 'form-check-input'
+            type = 'checkbox'
+            value = 'Revision del sistema electrico'
+            idCB = 'Revision del sistema electrico'
+            onChange = {handleCheckboxChange}
+            checked = {state.servicios.includes('Revision del sistema electrico')}
+          />
+
+          <InputForm
+            classDiv = 'form-check'
+            claseLabel = 'form-check-label'
+            typeLabel = 'Reparacion de neumaticos'
+            text = 'Reparacion de neumaticos'
+            classCheckbox = 'form-check-input'
+            type = 'checkbox'
+            value = 'Reparacion de neumaticos'
+            idCB = 'Reparacion de neumaticos'
+            onChange = {handleCheckboxChange}
+            checked = {state.servicios.includes('Reparacion de neumaticos')}
+          />
+
+          <InputForm
+            classDiv = 'form-check'
+            claseLabel = 'form-check-label'
+            typeLabel = 'Mantenimiento del sistema de aire acondicionado'
+            text = 'Mantenimiento del sistema de aire acondicionado'
+            classCheckbox = 'form-check-input'
+            type = 'checkbox'
+            value = 'Mantenimiento del sistema de aire acondicionado'
+            idCB = 'Mantenimiento del sistema de aire acondicionado'
+            onChange = {handleCheckboxChange}
+            checked = {state.servicios.includes("Mantenimiento del sistema de aire acondicionado")}
+          />
+
+          <div className = 'd-md-flex justify-content-md-end mt-4 mb-1'>
+            <ButtonForm typeButton = 'button' classButton = 'btn btn-primary me-md-2' text = 'Atrás' onClickButton = {handleAtrasClick}/>
+            <ButtonForm typeButton = 'submit' classButton = 'btn btn-primary' text = 'Siguiente'/>
           </div>
 
-          <div className="form-check">
-            <LabelFormCheck className='form-check-label' tipo="Cambio de frenos" text='Cambio de frenos'/>
-            <input className="form-check-input"
-              type="checkbox"
-              value="Cambio de frenos"
-              id="Cambio de frenos"
-              checked={state.servicios.includes("Cambio de frenos")}
-              onChange={handleCheckboxChange}
-            />
-          </div>
-
-          <div className="form-check">
-            <LabelFormCheck className='form-check-label' tipo="Alineacion y balanceo" text='Alineacion y balanceo'/>
-            <input className="form-check-input"
-              type="checkbox"
-              value="Alineacion y balanceo"
-              id="Alineacion y balanceo"
-              checked={state.servicios.includes("Alineacion y balanceo")}
-              onChange={handleCheckboxChange}
-            />
-          </div>
-
-          <div className="form-check">
-            <LabelFormCheck className='form-check-label' tipo="Diagnostico General" text='Diagnostico General'/>
-            <input className="form-check-input"
-              type="checkbox"
-              value="Diagnostico General"
-              id="Diagnostico General"
-              checked={state.servicios.includes("Diagnostico General")}
-              onChange={handleCheckboxChange}
-            />
-          </div>
-
-          <div className="form-check">
-            <LabelFormCheck className='form-check-label' tipo="Revision del sistema electrico" text='Revision del sistema electrico'/>
-            <input className="form-check-input"
-              type="checkbox"
-              value="Revision del sistema electrico"
-              id="Revision del sistema electrico"
-              checked={state.servicios.includes("Revision del sistema electrico")}
-              onChange={handleCheckboxChange}
-            />
-          </div>
-
-          <div className="form-check">
-            <LabelFormCheck className='form-check-label' tipo="Reparacion de neumaticos" text='Reparacion de neumaticos'/>
-            <input className="form-check-input"
-              type="checkbox"
-              value="Reparacion de neumaticos"
-              id="Reparacion de neumaticos"
-              checked={state.servicios.includes("Reparacion de neumaticos")}
-              onChange={handleCheckboxChange}
-            />
-          </div>
-
-          <div className="form-check">
-            <LabelFormCheck className='form-check-label' tipo="Mantenimiento del sistema de aire acondicionado" text='Mantenimiento del sistema de aire acondicionado'/>
-            <input className="form-check-input"
-              type="checkbox"
-              value="Mantenimiento del sistema de aire acondicionado"
-              id="Mantenimiento del sistema de aire acondicionado"
-              checked={state.servicios.includes("Mantenimiento del sistema de aire acondicionado")}
-              onChange={handleCheckboxChange}
-            />
-          </div>
-
-          <div className="d-md-flex justify-content-md-end mt-4 mb-1">
-            <button class="btn btn-primary me-md-2" type="button" onClick={handleAtrasClick}>Atrás</button>
-            <button type="submit" className="btn btn-primary">Siguiente</button>
-          </div>
         </form >
+        
       </div >
 
     </div >
